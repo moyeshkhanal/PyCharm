@@ -1,0 +1,6 @@
+1 Apple
+2 Banana
+3 Strawberries
+4 Mango
+5 Grapes
+6 Blueberries
