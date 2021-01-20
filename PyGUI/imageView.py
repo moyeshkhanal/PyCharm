@@ -19,9 +19,9 @@ imageColumn = [
 # This is the window layout
 layout = [
     [
-    sg.Column(leftColumn),
-    sg.VerticalSeparator(),
-    sg.Column(imageColumn)
+        sg.Column(leftColumn),
+        sg.VerticalSeparator(),
+        sg.Column(imageColumn)
     ]
 ]
 

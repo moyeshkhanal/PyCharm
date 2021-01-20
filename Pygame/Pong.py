@@ -148,7 +148,7 @@ while not done:
         ball.xcor = 350
         ball.ycor = 250
         leftscore.increaseScore(1)
-    if ball.xcor < 0:
+    if ball.xcor < 0:    
         ball.xcor = 350
         ball.ycor = 250
         rightscore.increaseScore(1)

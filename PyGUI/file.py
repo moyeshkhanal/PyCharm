@@ -1,39 +1,39 @@
-# import PySimpleGUI as sg
-#
-# sg.theme('Dark Blue 3')  # please make your creations colorful
-#
-# layout = [[sg.Text('Filename')],
-#             [sg.Input(), sg.FileBrowse()],
-#             [sg.ButtonMenu("Menu", menu_def=["menu", ["Two", "Three"]], key="btn-menu")],
-#             [sg.Radio("Checkbox", 2, key="check-box")],
-#             [sg.Checkbox('Another Checkbox', default=True, key="one"), sg.Checkbox('Another Checkbox2', default=True, key="two")],
-#             [sg.OK(), sg.Cancel(), sg.Submit()]]
-#
-# window = sg.Window('Get filename example', layout)
-# while True:
-#
-#     event, values = window.read()
-#     print(event, values)
-#     if event == "OK" or event is None:
-#         break
-#
-# window.close()
+import PySimpleGUI as sg
+
+sg.theme('Dark Blue 3')  # please make your creations colorful
+
+layout = [[sg.Text('Filename')],
+            [sg.Input(), sg.FileBrowse()],
+            [sg.ButtonMenu("Menu", menu_def=["menu", ["Two", "Three"]], key="btn-menu")],
+            [sg.Radio("Checkbox", 2, key="check-box")],
+            [sg.Checkbox('Another Checkbox', default=True, key="one"), sg.Checkbox('Another Checkbox2', default=True, key="two")],
+            [sg.OK(), sg.Cancel(), sg.Submit()]]
+
+window = sg.Window('Get filename example', layout)
+while True:
+
+    event, values = window.read()
+    print(event, values)
+    if event == "OK" or event is None:
+        break
+
+window.close()
 
 
-#
-# layout = [  [sg.Text('Some text on Row 1')],
-#             [sg.Text('Enter something on Row 2'), sg.InputText()],
-#             [sg.OK(), sg.Cancel()]]
-#
-# # Create the Window
-# window = sg.Window('Window Title', layout)
-# # Event Loop to process "events"
-# while True:
-#     event, values = window.read()
-#     if event in (sg.WIN_CLOSED, 'Cancel'):
-#         break
-#
-# window.close()
+
+layout = [  [sg.Text('Some text on Row 1')],
+            [sg.Text('Enter something on Row 2'), sg.InputText()],
+            [sg.OK(), sg.Cancel()]]
+
+# Create the Window
+window = sg.Window('Window Title', layout)
+# Event Loop to process "events"
+while True:
+    event, values = window.read()
+    if event in (sg.WIN_CLOSED, 'Cancel'):
+        break
+
+window.close()
 #
 # import os
 #
@@ -74,7 +74,7 @@
 #
 # window.close()
 
-import PySimpleGUI as sg
+# import PySimpleGUI as sg
 
 """
     Multiple Window Design Pattern
@@ -87,44 +87,44 @@ import PySimpleGUI as sg
     Copyright 2020 PySimpleGUI.org
 """
 
-
-def make_window1():
-    layout = [[sg.Text('Window 1'), ],
-              [sg.Input(enable_events=True, k='-IN-')],
-              [sg.Text(size=(20, 1), k='-OUTPUT-')],
-              [sg.Button('Launch 2'), sg.Button('Exit')]]
-
-    return sg.Window('Window 1', layout, finalize=True)
-
-
-def make_window2():
-    layout = [[sg.Text('Window 2')],
-              [sg.Button('Exit')]]
-
-    return sg.Window('Window 2', layout, finalize=True)
-
-
-def main():
-    window1, window2 = make_window1(), None
-    while True:
-        window, event, values = sg.read_all_windows()
-        if window == window1 and event in (sg.WIN_CLOSED, 'Exit'):
-            break
-        # Window 1 stuff
-        if event == '-IN-':
-            window['-OUTPUT-'].update(values['-IN-'])
-        elif event == 'Launch 2' and not window2:
-            window2 = make_window2()
-
-        # Window 2 stuff
-        if window == window2 and event in (sg.WIN_CLOSED, 'Exit'):
-            window2.close()
-            window2 = None
-
-    window1.close()
-    if window2 is not None:
-        window2.close()
-
-
-if __name__ == '__main__':
-    main()
+#
+# def make_window1():
+#     layout = [[sg.Text('Window 1'), ],
+#               [sg.Input(enable_events=True, k='-IN-')],
+#               [sg.Text(size=(20, 1), k='-OUTPUT-')],
+#               [sg.Button('Launch 2'), sg.Button('Exit')]]
+#
+#     return sg.Window('Window 1', layout, finalize=True)
+#
+#
+# def make_window2():
+#     layout = [[sg.Text('Window 2')],
+#               [sg.Button('Exit')]]
+#
+#     return sg.Window('Window 2', layout, finalize=True)
+#
+#
+# def main():
+#     window1, window2 = make_window1(), None
+#     while True:
+#         window, event, values = sg.read_all_windows()
+#         if window == window1 and event in (sg.WIN_CLOSED, 'Exit'):
+#             break
+#         # Window 1 stuff
+#         if event == '-IN-':
+#             window['-OUTPUT-'].update(values['-IN-'])
+#         elif event == 'Launch 2' and not window2:
+#             window2 = make_window2()
+#
+#         # Window 2 stuff
+#         if window == window2 and event in (sg.WIN_CLOSED, 'Exit'):
+#             window2.close()
+#             window2 = None
+#
+#     window1.close()
+#     if window2 is not None:
+#         window2.close()
+#
+#
+# if __name__ == '__main__':
+#     main()

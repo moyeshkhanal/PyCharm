@@ -11,8 +11,7 @@ event, values = window.read()
 while True:
     print(event, values)
     if event == "Hello":
-        sg.Popup('Ok clicked', keep_on_top=True)
-    elif event == "":
-        pass
-
+        sg.Popup('Ok clicked')
+        print(event, values)
+        break
 window.close()
